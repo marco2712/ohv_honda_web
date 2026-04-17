@@ -1,0 +1,85 @@
+/* Tailwind CSS base styles */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary: #98001b;
+  --primary-dark: #be1e2d;
+  --secondary: #5f5e5e;
+  --tertiary: #614504;
+  --surface: #f7fafd;
+  --on-surface: #181c1f;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  margin: 0;
+  padding: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.glass-nav {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.technical-gradient {
+  background: linear-gradient(135deg, #98001b 0%, #be1e2d 100%);
+}
+
+.hero-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-scroll {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.fade-in-scroll.is-visible {
+  opacity: 1;
+}
+
+.waterfall-text {
+  opacity: 1;
+}
+
+.waterfall-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.waterfall-text.is-visible .waterfall-char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}

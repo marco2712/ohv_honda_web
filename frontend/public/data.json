@@ -1,0 +1,137 @@
+{
+  "company": {
+    "name": "OHV HONDA",
+    "tagline": "Ingeniería de precisión y distribución automotriz para requisitos de alto rendimiento",
+    "year": 2012,
+    "address": "Cr15 8 40, Cali, Valle del Cauca",
+    "schedule": "LUN-VIE: 9:00 AM - 5:30 PM",
+    "phone": "+57 3000000000"
+  },
+  "navigation": [
+    { "label": "Inicio", "href": "#" },
+    { "label": "Accesorios", "href": "#accesorios" },
+    { "label": "Repuestos Honda", "href": "#repuestos" },
+    { "label": "Distribuidores", "href": "#distribuidores" },
+    { "label": "Contacto", "href": "#contacto" }
+  ],
+  "hero": {
+    "badge": "Diseñado para la Precisión",
+    "title": "LA FUERZA DE OHV HONDA",
+    "subtitle": "Soluciones automotrices de alto rendimiento para los entornos más exigentes. Importamos solo los mejores componentes para distribución profesional.",
+    "buttons": [
+      { "label": "Explorar Catálogo", "type": "primary" },
+      { "label": "Nuestro Proceso", "type": "secondary" }
+    ],
+    "videoUrl": "/videos/hero_video.mp4",
+    "sectionNumber": "01"
+  },
+  "businessLines": [
+    {
+      "id": 1,
+      "title": "Accesorios",
+      "subtitle": "Equipamiento de Alto Rendimiento",
+      "description": "Complementos y equipamiento diseñado para mejorar la funcionalidad y estética de su vehículo bajo los más altos estándares de calidad profesional.",
+      "linkText": "Ver Catálogo",
+      "imageUrl": "/images/plumillas.png",
+      "imageAlt": "Plumillas limpiaparabrisas premium"
+    },
+    {
+      "id": 2,
+      "title": "Repuestos Honda",
+      "subtitle": "Ingeniería OEM",
+      "description": "Repuestos certificados diseñados específicamente para los requisitos de rendimiento únicos de Honda. Durabilidad sin concesiones.",
+      "linkText": "Especificaciones Técnicas",
+      "imageUrl": "/images/honda_shock_absorber.png",
+      "imageAlt": "Componentes de motor mecanizados"
+    }
+  ],
+  "aboutUs": {
+    "identity": {
+      "label": "Nuestra Identidad",
+      "title": "La Autoridad en Importaciones Automotrices.",
+      "description": "OHV HONDA se erige como un pilar de confiabilidad en el mercado de repuestos de alto rendimiento. Nuestra experiencia como importadores principales nos permite cerrar la brecha entre los fabricantes mundiales y los distribuidores regionales."
+    },
+    "features": [
+      {
+        "icon": "verified",
+        "title": "Calidad Inigualable",
+        "description": "Cada componente en nuestro almacén se somete a una rigurosa evaluación de calidad antes de ingresar a nuestra cadena de distribución."
+      },
+      {
+        "icon": "precision_manufacturing",
+        "title": "Precisión Técnica",
+        "description": "Hablamos el idioma de los ingenieros. Nuestro proceso de selección está impulsado por datos y excelencia técnica."
+      }
+    ],
+    "quote": {
+      "text": "Nuestra misión es suministrar repuestos que no solo encajan—superan las especificaciones originales. Somos el corazón mecánico del éxito de nuestros socios.",
+      "author": "Equipo Fundador, OHV HONDA"
+    },
+    "imageUrl": "/images/honda_oil_filter.png",
+    "videoUrl": "/videos/hero_video.mp4"
+  },
+  "stats": {
+    "title": "Estamos a Nivel Nacional",
+    "metrics": [
+      { "number": "32", "label": "Departamentos Cubiertos" },
+      { "number": "400+", "label": "Socios Activos" },
+      { "number": "12k", "label": "SKUs Únicos" },
+      { "number": "99%", "label": "Precisión de Entrega" }
+    ],
+    "mapUrl": "/images/colombia_map_full.png",
+    "mapAlt": "Mapa de cobertura nacional en Colombia",
+    "ctaButton": "Únete a Nuestra Red"
+  },
+  "footer": {
+    "sections": [
+      {
+        "title": "OHV HONDA",
+        "type": "main",
+        "content": "Ingeniería de precisión y distribución automotriz para requisitos de alto rendimiento.",
+        "socialLinks": [
+          { "icon": "share", "label": "Compartir" },
+          { "icon": "mail", "label": "Email" },
+          { "icon": "call", "label": "Llamar" }
+        ]
+      },
+      {
+        "title": "Enlaces Rápidos",
+        "type": "links",
+        "links": [
+          { "label": "Red de Distribución", "href": "#" },
+          { "label": "Certificación Honda", "href": "#" },
+          { "label": "Portal Mayorista", "href": "#" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "type": "links",
+        "links": [
+          { "label": "Política de Privacidad", "href": "#" },
+          { "label": "Términos de Servicio", "href": "#" }
+        ]
+      },
+      {
+        "title": "Contacto",
+        "type": "contact",
+        "address": "Cr15 8 40, Cali, Valle del Cauca",
+        "schedule": "LUN-VIE: 9:00 AM - 5:30 PM"
+      }
+    ],
+    "copyright": "© {year} OHV HONDA Automotive. Ingeniería de Alto Rendimiento.",
+    "badges": [
+      "Importador Certificado",
+      "Precisión Aprobada"
+    ]
+  },
+  "chatbot": {
+    "title": "Asistente OHV Honda",
+    "name": "Tina",
+    "welcomeMessage": "¡Hola! Bienvenido a OHV HONDA. Me llamo Tina. ¿En qué te puedo ayudar hoy?",
+    "quickOptions": [
+      { "id": "horarios", "label": "Ver Horarios de Atención", "message": "¿Me puedes decir los horarios de atención de la empresa?" },
+      { "id": "catalogo", "label": "Información del Catálogo", "message": "Me gustaría saber dónde encontrar el catálogo completo." },
+      { "id": "asesor", "label": "Hablar con un asesor", "message": "Quiero contactarme con un asesor de ventas o persona real." }
+    ]
+  }
+}
