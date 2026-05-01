@@ -1,22 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
-import ModernLoader from './ModernLoader'
+import PixelBackground from './PixelBackground'
 
 
 export default function BotSection() {
-  const [expanded, setExpanded] = useState(false)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([
     { from: 'bot', text: '¡Hola! ¿Qué repuesto buscas hoy?' }
   ])
   const [loading, setLoading] = useState(false)
   const chatRef = useRef(null)
-  // Expansión automática tras 1er input
-  useEffect(() => {
-    if (expanded) return
-    if (messages.length > 1) {
-      setTimeout(() => setExpanded(true), 1200)
-    }
-  }, [messages, expanded])
+  const hasConversationStarted = messages.some((m) => m.from === 'user')
 
   // Scroll automático al fondo
   useEffect(() => {
@@ -26,42 +19,60 @@ export default function BotSection() {
   }, [messages, loading])
 
   const handleSend = async () => {
-    if (!input.trim() || loading) return
-    setMessages([...messages, { from: 'user', text: input }])
+    const query = input.trim()
+    if (!query || loading) return
+
+    setMessages([...messages, { from: 'user', text: query }])
     setInput('')
     setLoading(true)
-    // Simula animación de carga antes de responder
+
+    // Simula respuesta del bot
     setTimeout(() => {
       setLoading(false)
-      setMessages(msgs => [...msgs, { from: 'bot', text: 'Buscando repuesto: ' + input }])
-      setExpanded(true)
+      setMessages(msgs => [...msgs, { from: 'bot', text: 'Buscando repuesto: ' + query }])
     }, 1800)
   }
 
   return (
-    <section className="w-full flex justify-center py-12 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-400">
-      <div className={`relative transition-all duration-500 max-w-xl w-full rounded-2xl shadow-2xl bg-white/90 p-6 flex flex-col items-center ${expanded ? 'h-96' : 'h-auto min-h-[148px]'}`}>
-        <div className={`flex items-center gap-2 ${expanded ? 'mb-4' : 'mb-3'}`}>
-          <span className="text-2xl font-bold text-pink-600">🤖</span>
-          <span className="font-bold text-lg text-gray-800">Busca tu repuesto</span>
+    <section className="w-full flex justify-center py-12 relative overflow-hidden">
+      <PixelBackground
+        className="absolute inset-0 z-0 pointer-events-none"
+        opacity={0.9}
+        direction="center"
+      />
+
+      <div className="relative z-10 max-w-xl w-full rounded-2xl shadow-2xl bg-white/90 p-6 flex flex-col items-center h-96">
+        <div
+          className={`w-full flex flex-col items-center justify-center transition-all duration-500 ${
+            hasConversationStarted ? 'mb-4' : 'flex-1'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <span className={`${hasConversationStarted ? 'text-2xl' : 'text-5xl'} font-bold text-pink-600 transition-all duration-500`}>🤖</span>
+            <span className={`${hasConversationStarted ? 'text-lg' : 'text-3xl'} font-bold text-gray-800 transition-all duration-500`}>Busca tu repuesto</span>
+          </div>
         </div>
         <div
           ref={chatRef}
-          className={`relative w-full overflow-y-auto transition-all duration-500 ${expanded ? 'flex-1 mb-2' : 'max-h-0 mb-0 overflow-hidden'}`}
-          style={{ maxHeight: expanded ? 240 : 0 }}
+          className={`relative w-full overflow-y-auto transition-all duration-500 ${
+            hasConversationStarted ? 'flex-1 mb-2 opacity-100' : 'h-0 mb-0 opacity-0 overflow-hidden'
+          }`}
         >
           {messages.map((msg, i) => (
             <div key={i} className={`my-1 text-sm ${msg.from === 'bot' ? 'text-pink-700' : 'text-gray-700 text-right'}`}>{msg.text}</div>
           ))}
+
           {loading && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-white/65 backdrop-blur-sm px-4">
-              <div className="w-full h-full py-3">
-                <ModernLoader words={["Buscando repuestos...", "Consultando inventario...", "Preparando respuesta..."]} />
+            <div className="my-2 flex justify-start">
+              <div className="inline-flex items-center gap-1 rounded-full bg-gray-900/75 border border-black/10 px-3 py-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-100 animate-bounce" style={{ animationDelay: '0ms', animationDuration: '900ms' }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-100 animate-bounce" style={{ animationDelay: '150ms', animationDuration: '900ms' }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-100 animate-bounce" style={{ animationDelay: '300ms', animationDuration: '900ms' }} />
               </div>
             </div>
           )}
         </div>
-        <div className={`flex w-full gap-2 ${expanded ? 'mt-2' : 'mt-0'}`}>
+        <div className="flex w-full gap-2 mt-2">
           <input
             className="flex-1 rounded-lg border border-pink-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400"
             placeholder="Ej: filtro de aire"

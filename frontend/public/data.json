@@ -17,12 +17,12 @@
   "hero": {
     "badge": "Diseñado para la Precisión",
     "title": "LA FUERZA DE OHV HONDA",
-    "subtitle": "Soluciones automotrices de alto rendimiento para los entornos más exigentes. Importamos solo los mejores componentes para distribución profesional.",
+    "subtitle": "Soluciones automotrices de alto rendimiento para los entornos más exigentes.",
     "buttons": [
       { "label": "Explorar Catálogo", "type": "primary" },
       { "label": "Nuestro Proceso", "type": "secondary" }
     ],
-    "videoUrl": "/videos/hero_video.mp4",
+    "videoUrl": "/videos/video_honda.mp4",
     "sectionNumber": "01"
   },
   "businessLines": [

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PixelBackground from './PixelBackground'
 
 export default function Chatbot({ data }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,11 +49,13 @@ export default function Chatbot({ data }) {
       </button>
 
       <div
-        className={`fixed bottom-28 right-6 w-80 bg-surface rounded-2xl shadow-2xl border border-outline-variant/30 flex flex-col overflow-hidden z-[100] transition-all duration-300 ${
+        className={`fixed bottom-28 right-6 w-80 bg-surface rounded-2xl shadow-2xl border border-outline-variant/30 flex flex-col overflow-hidden relative z-[100] transition-all duration-300 ${
           isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="bg-primary text-white p-4 flex justify-between items-center shadow-md">
+        <PixelBackground className="absolute inset-0 z-0 pointer-events-none" opacity={0.35} />
+
+        <div className="bg-primary text-white p-4 flex justify-between items-center shadow-md relative z-10">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined">support_agent</span>
             <span className="font-bold font-headline text-sm tracking-wide">{chatbot.title}</span>
@@ -62,7 +65,7 @@ export default function Chatbot({ data }) {
           </button>
         </div>
 
-        <div className="p-4 h-80 overflow-y-auto space-y-4 text-sm bg-surface-container-low flex-1" style={{ scrollbarWidth: 'thin' }}>
+        <div className="p-4 h-80 overflow-y-auto space-y-4 text-sm bg-transparent flex-1 relative z-10" style={{ scrollbarWidth: 'thin' }}>
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'items-start gap-2'}`}>
               {message.type === 'bot' && (
@@ -83,7 +86,7 @@ export default function Chatbot({ data }) {
           ))}
         </div>
 
-        <form onSubmit={handleSendMessage} className="p-4 border-t border-outline-variant/20 bg-white">
+        <form onSubmit={handleSendMessage} className="p-4 border-t border-outline-variant/20 bg-white relative z-10">
           <div className="flex gap-2">
             <input
               type="text"

@@ -49,12 +49,12 @@ function App() {
     <div className={darkMode ? 'dark' : ''}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} data={data} />
       <Hero data={data} />
-      <BotSection />
       <BusinessLines data={data} />
+      <BotSection />
       <AboutUs data={data} />
       <Stats data={data} />
       <Footer data={data} />
-      <Chatbot data={data} />
+      {/* <Chatbot data={data} /> */}
     </div>
   )
 }
